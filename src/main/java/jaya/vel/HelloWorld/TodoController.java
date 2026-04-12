@@ -15,8 +15,25 @@ public class TodoController {
     }
 
     @GetMapping("")
-    String getTodo(@RequestParam int id){
+    String getTodo(@RequestParam("todoId") int id){
         return "vel " + id;
     }
+
+    @PostMapping("/create")
+    String createuser(@RequestBody String name){
+        return name + " Jayavel is hero and the villain";
+    }
+
+    @PutMapping("/update/{id}")
+    String updateUser(@PathVariable int id){
+        return "user updated  " + id;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    String deleteUser(@PathVariable int id){
+        return "user deleted" + id;
+    }
+
+
 
 }
