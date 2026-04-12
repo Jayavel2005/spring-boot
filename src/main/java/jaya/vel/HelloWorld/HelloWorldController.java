@@ -10,4 +10,9 @@ public class HelloWorldController {
         return "Hello Man";
     }
 
+    @GetMapping("/name")
+    String name(){
+        return "Jayavel";
+    }
+
 }
