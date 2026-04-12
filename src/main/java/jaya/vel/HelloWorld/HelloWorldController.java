@@ -11,7 +11,7 @@ public class HelloWorldController {
     }
 
     @GetMapping("/name")
-    String name(){
+    public String name(){
         return "Jayavel";
     }
 
