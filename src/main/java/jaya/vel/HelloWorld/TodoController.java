@@ -1,10 +1,15 @@
 package jaya.vel.HelloWorld;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/todo")
+
 public class TodoController {
+    @Autowired
+    private TodoService todoService;
+
     @GetMapping("/get")
     String  getTodo(){
         return "Hi I am todo";
@@ -18,6 +23,7 @@ public class TodoController {
     String getTodo(@RequestParam("todoId") int id){
         return "vel " + id;
     }
+
 
     @PostMapping("/create")
     String createuser(@RequestBody String name){
@@ -34,6 +40,10 @@ public class TodoController {
         return "user deleted" + id;
     }
 
+    @GetMapping("/show")
+    String showTodo(){
+        return todoService.printTodos();
+    }
 
 
 }
